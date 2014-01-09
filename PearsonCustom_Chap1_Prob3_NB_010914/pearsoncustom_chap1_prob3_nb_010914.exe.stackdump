@@ -1,0 +1,9 @@
+Exception: STATUS_INTEGER_DIVIDE_BY_ZERO at eip=00401227
+eax=00000005 ebx=0022AC5C ecx=68362138 edx=00000000 esi=00000000 edi=0022CD84
+ebp=0022AC38 esp=0022AC00 program=C:\Users\rcc\Desktop\PearsonCustom_Chap1_Prob3_NB_010914\dist\Debug\Cygwin_4.x-Windows\pearsoncustom_chap1_prob3_nb_010914.exe, pid 4324, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022AC38  00401227 (00000001, 0022AC5C, 20010100, 61007F58)
+0022ACF8  61007FB5 (00000000, 0022CD84, 61007120, 00000000)
+End of stack trace
