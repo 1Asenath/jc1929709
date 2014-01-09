@@ -13,9 +13,9 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=dll
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pearsoncustom_chap1_prob1_nb_010814
-OUTPUT_BASENAME=pearsoncustom_chap1_prob1_nb_010814
-PACKAGE_TOP_DIR=pearsoncustomchap1prob1nb010814/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pearsoncustom_chap1_prob5_nb_010914
+OUTPUT_BASENAME=pearsoncustom_chap1_prob5_nb_010914
+PACKAGE_TOP_DIR=pearsoncustomchap1prob5nb010914/
 
 # Functions
 function checkReturnCode
@@ -60,15 +60,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/pearsoncustomchap1prob1nb010814/bin"
+makeDirectory "${NBTMPDIR}/pearsoncustomchap1prob5nb010914/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/pearsoncustomchap1prob1nb010814.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/pearsoncustomchap1prob5nb010914.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/pearsoncustomchap1prob1nb010814.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/pearsoncustomchap1prob5nb010914.tar *
 checkReturnCode
 
 # Cleanup
