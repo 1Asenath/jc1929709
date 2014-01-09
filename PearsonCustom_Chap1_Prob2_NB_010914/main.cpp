@@ -2,6 +2,7 @@
  * File:   main.cpp
  * Author: Jennifer Clark
  * Created on January 9, 2014
+ * Modification of Peas Program to include Salutations
  */
 
 //System Libraries
