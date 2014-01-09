@@ -16,26 +16,31 @@ using namespace std;
 //Execution Begins Here
 int main( ) {
     int int1, int2, sum, product;
-    cout << "Press return after entering a number.\n";
+    cout << "(Press return after entering a number.)\n";
     cout << "Enter an integer:\n";
     cin >> int1;
     cout << "Enter a second integer:\n";
     cin >> int2;
     sum = int1 + int2;
     product = int1 * int2;
-    cout << "The sum of\n"<<;
+    cout <<endl;
+    cout << "The sum of ";
     cout << int1;
-    cout << "and "<<;
+    cout << " and ";
     cout << int2;
-    cout << "is "<<;
-    cout << sum endl;
-    cout << "The product of\n";
+    cout << " is ";
+    cout << sum;
+    cout << "."<<endl;
+    cout << "The product of ";
     cout << int1;
-    cout << "and ";
+    cout << " and ";
     cout << int2;
-    cout << "is ";
+    cout << " is ";
     cout << product;
+    cout <<"."<<endl;
+    cout <<endl;
+    cout <<"These are the only calculations available in this program.";
+    cout <<endl;
     
     return 0;
 }
-
