@@ -5,7 +5,6 @@ Min/Max Sort
 */
 
 //System Libraries
-#include <cstdlib>
 #include <iostream>
 using namespace std;
 
@@ -21,15 +20,15 @@ int main(int argc, char *argv[]){
     //Input a test score
     cout<<"What is the first of three different test scores?"<<endl;
     cin>>t1;
-    min=max=t1;
     //Input the next test score
     cout<<"What is the next test score?"<<endl;
     cin>>t2;
-    if(t2>max)max=t2;
-    if(t2<min)min=t2;
     //Input the last test score
     cout<<"What is the last test score?"<<endl;
     cin>>t3;
+    min=max=t1;
+    if(t2>max)max=t2;
+    if(t2<min)min=t2;
     if(t3>max)max=t3;
     if(t3<min)min=t3;
     //Calculate the average
