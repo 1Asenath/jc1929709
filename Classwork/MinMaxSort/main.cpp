@@ -26,6 +26,7 @@ int main(int argc, char *argv[]){
     //Input the last test score
     cout<<"What is the last test score?"<<endl;
     cin>>t3;
+    //Find the max and min
     min=max=t1;
     if(t2>max)max=t2;
     if(t2<min)min=t2;
@@ -46,16 +47,18 @@ int main(int argc, char *argv[]){
     }else{
       cout<<t3<<","<<t2<<endl;
       }
-    }else if(t2>t1&&t2>t3){
+    }
+    else if(t2>t1&&t2>t3){
       cout<<t2<<",";
     if(t1>t3){
       cout<<t1<<","<<t3<<endl;
     }else{
       cout<<t3<<","<<t1<<endl;
       }
-    }else if(t3>t1&&t3>t2){
+    }
+    else if(t3>t1&&t3>t2){
       cout<<t3<<",";
-    if(t1>t3){
+    if(t1>t2){
       cout<<t1<<","<<t2<<endl;
     }else{
       cout<<t2<<","<<t1<<endl;
