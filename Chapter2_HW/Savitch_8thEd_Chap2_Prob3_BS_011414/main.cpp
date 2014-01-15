@@ -1,0 +1,38 @@
+/*
+Jennifer Clark
+January 14, 2014
+Calculating pay total including increase and retroactive pay due
+*/
+
+//System Libraries
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
+//Global Constants
+
+//Function Prototypes
+
+//Execution Begins Here
+int main(int argc, char *argv[]){
+    //Define Variables
+    float rt_inc=.076, retro, new_an, new_mnt, prev_an, ans;
+    char N;
+    do{
+cout<<"Enter the employee's previous annual salary"<<endl;
+cin>>prev_an;
+    //Calculate retroactive pay
+retro=(.076/2)*prev_an;
+cout<<"The employee's retroactive pay due is $"<<retro<<endl;
+    //Calculate the new annual/monthly salary
+new_an=prev_an + (prev_an*rt_inc);
+new_mnt=new_an/12;
+cout<<"The employee's new annual salary is $"<<new_an<<endl;
+cout<<"The employee's new monthly salary is $"<<new_mnt<<endl;
+cout<<"For another employee's calculation, enter N"<<endl;
+cin>>ans;
+} while (ans == 'N');
+
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
