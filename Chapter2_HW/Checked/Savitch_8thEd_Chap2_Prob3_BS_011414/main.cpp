@@ -25,13 +25,14 @@ cout<<"Enter the employee's previous annual salary"<<endl;
 cin>>prev_an;
     //Calculate retroactive pay
 retro=(.076/2)*prev_an;
+        cout<<setprecision(2);
+        cout<<fixed;
+        cout<<showpoint;
 cout<<"The employee's retroactive pay due is $"<<retro<<endl;
     //Calculate the new annual/monthly salary
 new_an=prev_an + (prev_an*rt_inc);
 new_mnt=new_an/12;
-        cout<<setprecision (2);
-        cout<<fixed;
-        cout<<showpoint;
+
 cout<<"The employee's new annual salary is $"<<new_an<<endl;
 cout<<"The employee's new monthly salary is $"<<new_mnt<<endl;
 cout<<"For another employee's calculation, enter c"<<endl;
