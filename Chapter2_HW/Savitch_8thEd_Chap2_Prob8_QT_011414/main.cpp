@@ -41,6 +41,7 @@ const float CNV_PERC=100
     //Output
         cout<<"Price third second year = $"<<price<<endl;
     //Exit Stage Right
+    system("PAUSE");
     return 0;
 }
 

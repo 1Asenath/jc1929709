@@ -22,15 +22,16 @@ cout<<"Enter the total number of people attending the meeting."<<endl;
 cin>>attend;
     //Calculate whether people exceed maximum capacity
 if (attend>=mtg_cap){
-if (attend=mtg_cap){
-cout<<"You may hold the meeting but you are at maximum capacity."<<endl; 
-}else{
+if (attend=mtg_cap)
+cout<<"You may hold the meeting, but you are at maximum capacity."<<endl; 
+}
+else{
    //Calculate how many people must be excluded
    exclude=attend-mtg_cap;
    cout<<"The meeting cannot be held due to fire regulations."<<endl;
    cout<<exclude<<" people must be excluded in order to meet regulations."<<endl;
 }
-}else if (attend<mtg_cap){
+if (attend<mtg_cap){
     //Calculate how many additional people may attend
     xtra_ppl=mtg_cap-attend;
     cout<<xtra_ppl<<" additional people may legally attend in accordance with fire regulations."<<endl;
