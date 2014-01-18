@@ -39,7 +39,15 @@ const float CNV_PERC=100
     //Calculate the third year increase
         price*=(1+infltn);
     //Output
-        cout<<"Price third second year = $"<<price<<endl;
+        cout<<"Price increase third year = $"<<price<<endl;
+    //Calculate the fourth year increase
+        price*=(1+infltn);
+    //Output
+        cout<<"Price increase fourth year = $"<<price<<endl;
+    //Calculate the fifth year increase
+        price*=(1+infltn);
+    //Output
+        cout<<"Price increase fifth year = $"<<price<<endl;
     //Exit Stage Right
     system("PAUSE");
     return 0;
