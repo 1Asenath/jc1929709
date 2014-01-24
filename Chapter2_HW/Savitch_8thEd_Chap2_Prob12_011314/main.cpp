@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     cout<<"Exact Answer = "<<sqrt(x)<<endl;
     //Exit Stage Right!
     
-    system("PAUSE");
+  
     return 0;
 }
 
