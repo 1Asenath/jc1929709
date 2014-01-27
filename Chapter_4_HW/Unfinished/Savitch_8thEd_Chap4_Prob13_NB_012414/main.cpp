@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     int tens, ones, count, word;
     cout<<"Ninety-Nine Bottles of Beer on the Wall"<<endl<<endl;
     //Start Loop
-    // Loop-> for(int count=99;count>=20){
+    // Loop-> for(int count=99;count>=20;count--){
     frstwrd(tens, count, word);
     scndwrd(tens, count, word);
     cout<<"Bottles of beer on the wall,"<<endl;
