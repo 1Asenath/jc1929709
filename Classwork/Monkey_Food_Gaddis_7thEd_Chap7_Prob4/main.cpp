@@ -16,16 +16,18 @@ using namespace std;
 const int COLS=7;
 
 //Function Prototypes
-int read(char [],int [][COLS]);
-void write(int [][COLS],int);
-int min(int [][COLS],int);
-int max(int [][COLS],int);
-void avg(int [][COLS],int [],int);
+int read(const char [],int [][COLS]); //char is the file name
+void write(const int [][COLS],int); //not changing the write, or the size (int ROWS) but the size is pass by copy so it doesn't matter to change to const
+void write(const int [][COLS],const float [],int); //including float avg and the size of the rows - to display the average in the table
+int min(const int [][COLS], int); //same thing w/ second int... it's the size
+int max(const int [][COLS],int);
+void avg(const int [][COLS],float [],int); //the float is the avg, since we're calculating we are actually changing something y returning values, so don't make it const
 
 int main(int argc, char** argv) {
     //Declare variables
     const int ROWS=20;
-    int mnkFood[ROWS][COLS], avgMnk[ROWS];
+    int mnkFood[ROWS][COLS];
+    float avgMnk[ROWS];
     char fName[]="./monkey.dat";
     //Read the data from the file
     int actSize=read(fName,mnkFood);
@@ -41,11 +43,28 @@ int main(int argc, char** argv) {
         <<max(mnkFood,actSize)<<" ounces"<<endl;
     //Output the average amount of food eaten by each monkey
     avg(mnkFood,avgMnk,actSize);
+    //Output the augmented table w avg
+    write(mnkFood,avgMnk,actSize);
     //Exit stage right
     return 0;
 }
 
-void avg(int monkey[][COLS],int avgMnk[],int ROWS){
+void write(const int monkey[][COLS],const float mnkAvg[],int ROWS){
+    cout<<endl;
+    cout<<setprecision(2)<<fixed<<showpoint;
+    cout<<"Monkey    M   T   W   T   F   S   S   Avg"<<endl;
+    for(int row=0;row<ROWS;row++){
+        cout<<"  "<<row+1<<"    ";
+        for(int col=0;col<COLS;col++){
+            cout<<setw(4)<<monkey[row][col];
+        }
+        cout<<"   "<<mnkAvg[row];
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
+void avg(const int monkey[][COLS],float avgMnk[],int ROWS){
     //initialize the avg array
     for(int row=0;row<ROWS;row++){
         avgMnk[row]=0;
@@ -57,13 +76,14 @@ void avg(int monkey[][COLS],int avgMnk[],int ROWS){
         }
     }
     //divide by number of days
+    cout<<setprecision(2)<<fixed<<showpoint;
     for(int row=0;row<ROWS;row++){
         avgMnk[row]/=COLS;
         cout<<"Monkey "<<(row+1)<<" averaged "<<avgMnk[row]<<" ounces per day"<<endl;
         }
 }
 
-int max(int monkey[][COLS],int ROWS){
+int max(const int monkey[][COLS],int ROWS){
     //Declare some small variable;
     int big=monkey[0][0];
     for(int row=0;row<ROWS;row++){
@@ -76,7 +96,7 @@ int max(int monkey[][COLS],int ROWS){
     return big;
 }
 
-int min(int monkey[][COLS],int ROWS){
+int min(const int monkey[][COLS],int ROWS){
     //Declare some small variable;
     int small=monkey[0][0];
     for(int row=0;row<ROWS;row++){
@@ -89,7 +109,7 @@ int min(int monkey[][COLS],int ROWS){
     return small;
 }
 
-void write(int monkey[][COLS],int ROWS){
+void write(const int monkey[][COLS],int ROWS){
     cout<<endl;
     cout<<"Monkey    M   T   W   T   F   S   S"<<endl;
     for(int row=0;row<ROWS;row++){
@@ -102,7 +122,7 @@ void write(int monkey[][COLS],int ROWS){
     cout<<endl;
 }
 
-int read(char fName[],int monkey[][COLS]){
+int read(const char fName[],int monkey[][COLS]){
     //Open the file
     ifstream input;
     input.open(fName);

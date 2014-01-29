@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=monkey_food_gaddis_7thed_chap7_prob4
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/monkey_food_gaddis_7thed_chap7_prob4
+CND_ARTIFACT_NAME_Debug=midterm_problem3_012814
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/midterm_problem3_012814
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=monkeyfoodgaddis7thedchap7prob4.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/monkeyfoodgaddis7thedchap7prob4.tar
+CND_PACKAGE_NAME_Debug=midtermproblem3012814.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/midtermproblem3012814.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=monkey_food_gaddis_7thed_chap7_prob4
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/monkey_food_gaddis_7thed_chap7_prob4
+CND_ARTIFACT_NAME_Release=midterm_problem3_012814
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/midterm_problem3_012814
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=monkeyfoodgaddis7thedchap7prob4.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/monkeyfoodgaddis7thedchap7prob4.tar
+CND_PACKAGE_NAME_Release=midtermproblem3012814.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/midtermproblem3012814.tar
 #
 # include compiler specific variables
 #

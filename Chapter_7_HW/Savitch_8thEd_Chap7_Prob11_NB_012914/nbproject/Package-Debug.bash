@@ -12,9 +12,9 @@ CND_DISTDIR=dist
 CND_BUILDDIR=build
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/monkey_food_gaddis_7thed_chap7_prob4
-OUTPUT_BASENAME=monkey_food_gaddis_7thed_chap7_prob4
-PACKAGE_TOP_DIR=monkeyfoodgaddis7thedchap7prob4/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/savitch_8thed_chap7_prob11_nb_012914
+OUTPUT_BASENAME=savitch_8thed_chap7_prob11_nb_012914
+PACKAGE_TOP_DIR=savitch8thedchap7prob11nb012914/
 
 # Functions
 function checkReturnCode
@@ -59,15 +59,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/monkeyfoodgaddis7thedchap7prob4/bin"
+makeDirectory "${NBTMPDIR}/savitch8thedchap7prob11nb012914/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/monkeyfoodgaddis7thedchap7prob4.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch8thedchap7prob11nb012914.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/monkeyfoodgaddis7thedchap7prob4.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch8thedchap7prob11nb012914.tar *
 checkReturnCode
 
 # Cleanup
