@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Search_With_A_Vector_2
+PROJECTNAME=Gaddis_6thEd_Chap6_Prob21_Savitch_8thEd_Chap3_Prob14
 
 # Active Configuration
 DEFAULTCONF=Debug

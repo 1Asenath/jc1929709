@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=search_with_a_vector_2
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/search_with_a_vector_2
+CND_ARTIFACT_NAME_Debug=gaddis_6thed_chap6_prob21_savitch_8thed_chap3_prob14
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_6thed_chap6_prob21_savitch_8thed_chap3_prob14
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=searchwithavector2.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/searchwithavector2.tar
+CND_PACKAGE_NAME_Debug=gaddis6thedchap6prob21savitch8thedchap3prob14.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis6thedchap6prob21savitch8thedchap3prob14.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=search_with_a_vector_2
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/search_with_a_vector_2
+CND_ARTIFACT_NAME_Release=gaddis_6thed_chap6_prob21_savitch_8thed_chap3_prob14
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_6thed_chap6_prob21_savitch_8thed_chap3_prob14
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=searchwithavector2.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/searchwithavector2.tar
+CND_PACKAGE_NAME_Release=gaddis6thedchap6prob21savitch8thedchap3prob14.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis6thedchap6prob21savitch8thedchap3prob14.tar
 #
 # include compiler specific variables
 #
