@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=MenuForFutureHmwkAndTests
+PROJECTNAME=Midterm_Menu
 
 # Active Configuration
 DEFAULTCONF=Debug

@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=menuforfuturehmwkandtests
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/menuforfuturehmwkandtests
+CND_ARTIFACT_NAME_Debug=midterm_menu
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/midterm_menu
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=menuforfuturehmwkandtests.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/menuforfuturehmwkandtests.tar
+CND_PACKAGE_NAME_Debug=midtermmenu.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/midtermmenu.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=menuforfuturehmwkandtests
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/menuforfuturehmwkandtests
+CND_ARTIFACT_NAME_Release=midterm_menu
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/midterm_menu
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=menuforfuturehmwkandtests.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/menuforfuturehmwkandtests.tar
+CND_PACKAGE_NAME_Release=midtermmenu.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/midtermmenu.tar
 #
 # include compiler specific variables
 #
