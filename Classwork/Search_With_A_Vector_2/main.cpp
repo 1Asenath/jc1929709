@@ -19,7 +19,7 @@ void filAray(int [],int);
 void prntAry(const int [],int,int);
 void prntVec(const vector<int>&,int);
 int  find(const int [],int,int,int);
-void find(const int [],int,int,int,vector<int> &);
+void find(const int [],int,int,int,vector<int> &);  //find vector
 void find(const int [],int,int,int,int []);
 void askAray(int [],int);
 void prntAry(const int [],int);
