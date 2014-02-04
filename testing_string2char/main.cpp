@@ -19,9 +19,14 @@ using namespace std;
 int main(int argc, char** argv) {
     string word;
     word="blueberries";
-    char myArray[word.size()];
-    strcpy(myArray, word.c_str());
-    cout<<myArray[0]<<endl;
+    char cString[word.size()];
+    int arylngt = word.length();        //arylngt= array length
+    for (int i=0;i<arylngt;i++){
+    cString[i]=word[i];
+    //cout<<cString[i];
+    cout<<"__ ";
+    }
+    cout<<endl;
     return 0;
 }
 
