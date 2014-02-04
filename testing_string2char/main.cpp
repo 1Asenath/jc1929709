@@ -19,14 +19,19 @@ using namespace std;
 int main(int argc, char** argv) {
     string word;
     word="blueberries";
-    char cString[word.size()];
-    int arylngt = word.length();        //arylngt= array length
+    char cString[word.size()], guess;
+    int arylngt=word.length();        //arylngt= array length
     for (int i=0;i<arylngt;i++){
     cString[i]=word[i];
     //cout<<cString[i];
     cout<<"__ ";
     }
     cout<<endl;
+    cout<<"Type your letter guess (lowercase only): ";
+    cin>>guess;
+    for(int i=0;i<arylngt;i++){
+        if(cString[i]==guess)cout<<word[i]<<"  ";
+        else if (cString[i]!=guess)cout<<"__ ";
+    }
     return 0;
 }
-
