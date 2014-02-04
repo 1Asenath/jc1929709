@@ -29,25 +29,21 @@ void xcopy(int [],int [],int); //to copy the filled array so we can change only 
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables & Initialize the Random Number Generator
-    const int SIZE=200;
+    const int SIZE=142000;
     int array[SIZE], brray[SIZE];
     srand(static_cast<unsigned int>(time(0)));
     //Fill the Arrays
     filAray(array,SIZE);
     xcopy(array,brray,SIZE);
     //Print the Array
-    prntAry(array,SIZE,10);
+    //prntAry(array,SIZE,10);
     //Test out the min pos routine
-    //minPos(array,SIZE,0);
-    //minPos(array,SIZE,1);
-    //minPos(array,SIZE,2);
-    //Run with a loop
-    //for(int i=0;i<SIZE-1;i++){
-    //    minPos(array,SIZE,i);
-    //}
+    int strTime=time(0);                        //Start the timeing test here
     mrkSort(brray,SIZE);                        //sorting done on the array copy
+    int endTime=time(0); 
+    cout<<"Total Time Taken = "<<endTime-strTime<< " secs"<<endl;
     //Print the Array to test for accuracy
-    prntAry(brray,SIZE,10);                     //printing done on the array copy
+    //prntAry(brray,SIZE,10);                     //printing done on the array copy
     //Exit Stage Right
     return 0;
 }
