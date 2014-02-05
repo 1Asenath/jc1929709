@@ -1,0 +1,10 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=6F207F47
+eax=FEC054D0 ebx=0022ABE8 ecx=20000038 edx=FE9DA8E8 esi=FFFFFFFF edi=0022ABFC
+ebp=0022ABC8 esp=0022AA70 program=C:\Users\Jennifer\Desktop\jc1929709\Project_1_redo\dist\Debug\Cygwin_4.x-Windows\project_1_redo.exe, pid 2676, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022ABC8  6F207F47 (0022AC04, 0022ABE8, 0022AC08, 611240DF)
+0022AC28  0040126C (00000000, 0022CD84, 0022ACF8, 61007FB5)
+0022ACF8  61007FB5 (00000000, 0022CD84, 61007120, 00000000)
+End of stack trace
