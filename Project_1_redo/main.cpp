@@ -8,6 +8,7 @@
 //System Libraries
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <ctime>
@@ -31,13 +32,20 @@ int main(int argc, char** argv) {
     //Declare Variables
     string word, line ,filaray[200];
     int hang=0, wrong=0;
-    char guess;
+    char guess, ans='y', x;
     bool gamOver=false;
     //Set Random Counter
     srand(static_cast<unsigned int>(time(0)));
     //Intro
-    cout<<"Welcome to Hangman!"<<endl;
-    cout<<"To play, guess a letter. "<<endl;
+    cout<<"Welcome to Hangman!"<<endl<<endl;
+    cout<<"To play, guess a letter."<<endl;
+    cout<<"But beware! If you guess an incorrect letter multiple times, you are that much closer to Hangman."<<endl<<endl;
+    //Being Game Loop
+    while(ans=='y'){
+    //Reset Game Counters   
+    gamOver=false;
+    hang=0;
+    wrong=0;
     //Read in the file & generate a random word
     word=filewrd(filaray, line);
     //Output the random word
@@ -47,18 +55,50 @@ int main(int argc, char** argv) {
     for (int i=0;i<(arylngt-1);i++){
     cString[i]=word[i];
     marker[i]=false;
-    cout<<"__ ";
+    //TEST FOR OUTPUT cout<<"__ ";
     }
     cout<<endl;
-    //Begin Game Loop
+    //Begin Guessing Loop
     while(!gamOver){
-    cout<<"Type your letter guess (lowercase letters only): ";
+        //Determine Graphic Output
+        if(hang==0){
+            blank(x);
+        }
+        if(hang==1){
+            h(x);
+        }
+        if(hang==2){
+            hb(x);
+        }
+        if(hang==3){
+            hab(x);
+        }
+        if(hang==4){
+            haab(x);
+        }
+        if(hang==5){
+            haabl(x);
+        }
+        for(int i=0;i<(arylngt-1);i++){
+            if(marker[i]==true){
+                cout<<word[i]<<"  ";
+            }
+            else if(cString[i]==guess){
+                cout<<word[i]<<"  ";
+                marker[i]=true;
+            }
+            else if (cString[i]!=guess)
+                cout<<"__ ";        
+        }
+        
+    cout<<endl<<endl<<"Type your letter guess (lowercase letters only): ";
     cin>>guess;
+    cout<<endl<<endl;
     bool ret=false;
     for(int i=0;i<arylngt;i++){
         if(cString[i]==guess)ret=true;
     }
-    if(ret==true){
+        if(ret==true){
         for(int i=0;i<(arylngt-1);i++){
             if(marker[i]==true){
                 cout<<word[i]<<"  ";
@@ -74,7 +114,7 @@ int main(int argc, char** argv) {
         cout<<"That letter is not found in the word!"<<endl;
         hang++;
     }
-    cout<<endl<<"You have used "<<hang<<"/6 chances"<<endl;
+    cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl<<endl;
     gamOver=true;
     for(int i=0;i<(arylngt-1);i++){
             if(marker[i]==false){
@@ -85,18 +125,28 @@ int main(int argc, char** argv) {
         gamOver=true;
     }
     }
+    if(gamOver==true&&hang==6){
+        dead(x);
+        cout<<"      Hangman!!"<<endl;
+        cout<<"Your word was "<<word<<"sdf"<<endl;
+    }
+    if(gamOver==true){
+        cout<<"Would you like to play again? Press 'y' for yes."<<endl<<endl;
+        cin>>ans;
+        cout<<endl;
+    }
+    }
     return 0;
 }
 
 string filewrd(string filaray[], string line){
-    
     short loop=0; //short for loop for input
-    // string line; //this will contain the data read from the file
+    //this will contain the data read from the file
     ifstream input;
     //Open the input file
     input.open("random_word_list.dat");
     if (input.is_open()){ //if the file is open
-        while (! input.eof() ){ //while the end of file is NOT reached
+        while (!input.eof() ){ //while the end of file is NOT reached
             getline(input,line); //get one line from the file
             filaray[loop]=line;
             //TEST cout<<filaray[loop]<<endl; //output the array
@@ -122,7 +172,7 @@ cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void h(char x){
@@ -139,7 +189,7 @@ cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void hb(char x){
@@ -156,7 +206,7 @@ cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void hab(char x){
@@ -173,7 +223,7 @@ cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void haab(char x){
@@ -190,7 +240,7 @@ cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void haabl(char x){
@@ -207,7 +257,7 @@ cout<<"   x          x"<<endl;
 cout<<"  x           x"<<endl;
 cout<<"  x           x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }
 
 void dead(char x){
@@ -224,5 +274,5 @@ cout<<"   x x        x"<<endl;
 cout<<"  x   x       x"<<endl;
 cout<<"  x   x       x"<<endl;
 cout<<"              x"<<endl;
-cout<<"  x x x x x x x x x"<<endl;
+cout<<"  x x x x x x x x x"<<endl<<endl;
 }

@@ -1,0 +1,8 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=610EDD7B
+eax=612A3B1C ebx=612A3B1C ecx=00000015 edx=0022AA90 esi=00000001 edi=0022AAF0
+ebp=0022AA90 esp=0022AA20 program=C:\Users\rcc\Desktop\Mark_Sort\dist\Debug\Cygwin_4.x-Windows\mark_sort.exe, pid 5020, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022AA90  610EDD7B (00000000, 00000000, 00000000, 00000000)
+End of stack trace
