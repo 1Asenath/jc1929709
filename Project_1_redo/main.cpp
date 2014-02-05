@@ -94,7 +94,7 @@ string filewrd(string filaray[], string line){
     // string line; //this will contain the data read from the file
     ifstream input;
     //Open the input file
-    input.open("random_words.dat");
+    input.open("random_word_list.dat");
     if (input.is_open()){ //if the file is open
         while (! input.eof() ){ //while the end of file is NOT reached
             getline(input,line); //get one line from the file
@@ -107,7 +107,6 @@ string filewrd(string filaray[], string line){
     int randnum=rand()%loop;
     return (filaray[randnum]);
 }
-
 
 void blank(char x){
 cout<<"    x x x x x x"<<endl;
