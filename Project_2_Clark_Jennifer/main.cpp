@@ -180,7 +180,7 @@ void prntAry(int *a,int n){
 int *filAry(int n, char guess){
 	//Declare a Pointer and allocate memory
 	int *array=new int[n];
-	//Fill w tguess
+	//Fill with guess
 	for(int i=0;i<n;i++){
 		*(array+i)=guess;
 	}
