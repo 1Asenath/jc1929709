@@ -17,14 +17,18 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-void blank(); //output for platform
-void h(); //output for head
-void hb(); //output for head & body
-void hab(); //output for head, body, arm
-void haab(); //output for head, body, arm, arm
-void haabl(); //output for head, body, arm, arm
-void dead(); //output for hanged man
-string filewrd(string [], string); //input the word from the file
+void blank();   //output for platform
+void h();       //output for head
+void hb();      //output for head & body
+void hab();     //output for head, body, arm
+void haab();    //output for head, body, arm, arm
+void haabl();   //output for head, body, arm, arm
+void dead();    //output for hanged man
+void pict(int); //determine graphic output
+string filewrd(string [], string);      //input the word from the file
+bool gamOv( bool[], int);               //determine if game is really over
+int *filAry(int,char);                  //fill an integer array
+void prntAry(int *,int,int);            //print the array
 
 //Execution Begins Here
 
@@ -57,55 +61,37 @@ int main(int argc, char** argv) {
             marker[i]=false;
         }
         cout<<endl;
-        //Begin Guessing Loop
-        while (!gamOver){
-            //Determine Graphic Output
-            do{
-                if(hang==0){
-                    blank();
-                    break;
-                }
-                if (hang==1){
-                    h();
-                    break;
-                }
-                if (hang==2){
-                    hb();
-                    break;
-                }
-                if (hang==3){
-                    hab();
-                    break;
-                }
-                if (hang==4){
-                    haab();
-                    break;
-                }
-                if (hang==5){
-                    haabl();
-                    break;
-                }
-            }
-            while (!gamOver);
-            for (int i=0; i<(arylngt-1); i++){
-                if (marker[i]==true) {
-                    cout<<word[i]<<"  ";
-                } else if (cString[i]==guess){
-                    cout<<word[i]<< "  ";
-                    marker[i]=true;
-                } else if (cString[i]!=guess)
+        //Determine graphic output
+        pict(hang);
+        for (int i=0; i<(arylngt-1); i++){
+                if (cString[i]!=guess)
                     cout<<"__ ";
             }
-            //Request input of letter word
+        cout<<endl;
+        //Fill the wrong-letter array
+        int *array=filAry(hang,guess);
+        //Begin Guessing Loop
+        while (!gamOver){
+            //Request input of letter
             cout<<endl<<endl<<"Type your letter guess (lowercase letters only): ";
             cin>>guess;
-            cout<<endl<<endl;
+            cout<<endl;
             bool ret=false;
             for (int i=0; i<arylngt; i++) {
                 if (cString[i]==guess)ret=true;
             }
+            //Configure word output
             if (ret==true) {
-                for (int i=0; i<(arylngt-1); i++){
+                cout<<"Congratulations"<<endl;
+            }else{
+                cout<<"That letter is not found in the word!"<<endl;
+                hang++;
+            }
+            cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl;
+            //Determine graphic output
+            pict(hang);
+            //Output word thus far
+            for (int i=0; i<(arylngt-1); i++){
                     if (marker[i]==true){
                         cout<<word[i]<<"  ";
                     } else if (cString[i]==guess){
@@ -114,13 +100,10 @@ int main(int argc, char** argv) {
                     } else if (cString[i]!=guess)
                         cout<<"__ ";
                 }
-            }else{
-                cout<<"That letter is not found in the word!"<<endl;
-                hang++;
-            }
-            cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl<<endl;
-            cout<<endl<<"Your wrong guesses are: ";
+            cout<<endl;
+            //cout<<"Your wrong guesses are: "<<prntAry(array,hang)<<endl<<endl;
             gamOver=true;
+            //Determine if gamOver is really True
             for (int i=0; i<(arylngt-1); i++){
                 if (marker[i]==false){
                     gamOver=false;
@@ -139,12 +122,69 @@ int main(int argc, char** argv) {
             cout<<"Would you like to play again? Press 'y' for yes."<<endl<<endl;
             cin>>ans;
             cout<<endl;
+            //Clean up and exit
+            //delete []array;
         }
         if (ans!='y'){
             break;
         }
     }
     return 0;
+}
+
+//Finish this function!!!
+//bool gamOv( bool marker[i], bool gamOver, int hang){
+//    gamOver=true;
+//            for (int i=0; i<(arylngt-1); i++){
+//                if (marker[i]==false){
+//                    gamOver=false;
+//                }
+//            }
+//            if (hang>5){
+//                gamOver=true;
+//            }
+//    return gamOver;
+//}
+
+void pict(int hang){
+                switch(hang){
+                case(0):
+                    blank();
+                    break;
+                case(1):
+                    h();
+                    break;
+                case(2):
+                    hb();
+                    break;
+                case(3):
+                    hab();
+                    break;
+                case(4):
+                    haab();
+                    break;
+                case(5):
+                    haabl();
+                    break;
+            }
+}
+
+void prntAry(int *a,int n){
+	cout<<endl;
+	for(int i=0;i<n;i++){
+		cout<<*(a+i)<<" ";
+	}
+	cout<<endl;
+}
+
+int *filAry(int n, char guess){
+	//Declare a Pointer and allocate memory
+	int *array=new int[n];
+	//Fill w tguess
+	for(int i=0;i<n;i++){
+		*(array+i)=guess;
+	}
+	return array;
 }
 
 string filewrd(string filaray[], string line) {

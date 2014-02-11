@@ -46,6 +46,9 @@ int main(int argc, char** argv) {
         gamOver=false;
         hang=0;
         guess=0;
+        char array;
+        //Declare a pointer for incorrectly guessed letters and allocate memory
+	char *array=new char[guess];
         //Read in the file & generate a random word
         word=filewrd(filaray, line);
         //Output the random word
@@ -57,36 +60,34 @@ int main(int argc, char** argv) {
             marker[i]=false;
         }
         cout<<endl;
+        for (int i=0; i<(arylngt-1); i++){
+                if (cString[i]!=guess)
+                    cout<<"__ ";
+            }
+        cout<<endl;
         //Begin Guessing Loop
         while (!gamOver){
             //Determine Graphic Output
-            do{
-                if(hang==0){
+            switch(hang){
+                case(0):
                     blank();
                     break;
-                }
-                if (hang==1){
+                case(1):
                     h();
                     break;
-                }
-                if (hang==2){
+                case(2):
                     hb();
                     break;
-                }
-                if (hang==3){
+                case(3):
                     hab();
                     break;
-                }
-                if (hang==4){
+                case(4):
                     haab();
                     break;
-                }
-                if (hang==5){
+                case(5):
                     haabl();
                     break;
-                }
             }
-            while (!gamOver);
             for (int i=0; i<(arylngt-1); i++){
                 if (marker[i]==true) {
                     cout<<word[i]<<"  ";
@@ -99,7 +100,7 @@ int main(int argc, char** argv) {
             //Request input of letter word
             cout<<endl<<endl<<"Type your letter guess (lowercase letters only): ";
             cin>>guess;
-            cout<<endl<<endl;
+            cout<<endl;
             bool ret=false;
             for (int i=0; i<arylngt; i++) {
                 if (cString[i]==guess)ret=true;
@@ -117,9 +118,11 @@ int main(int argc, char** argv) {
             }else{
                 cout<<"That letter is not found in the word!"<<endl;
                 hang++;
+		*(array+guess)=*array;
+	}
             }
-            cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl<<endl;
-            cout<<endl<<"Your wrong guesses are: ";
+            cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl;
+            cout<<"Your wrong guesses are: "<<endl<<endl;
             gamOver=true;
             for (int i=0; i<(arylngt-1); i++){
                 if (marker[i]==false){
@@ -139,9 +142,11 @@ int main(int argc, char** argv) {
             cout<<"Would you like to play again? Press 'y' for yes."<<endl<<endl;
             cin>>ans;
             cout<<endl;
-        }
+            //Clean up and exit
+            delete []array;
         if (ans!='y'){
             break;
+        }
         }
     }
     return 0;
