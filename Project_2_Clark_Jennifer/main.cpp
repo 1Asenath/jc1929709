@@ -27,17 +27,17 @@ void dead();    //output for hanged man
 void pict(int); //determine graphic output
 string filewrd(string [], string);      //input the word from the file
 bool gamOv( bool[], int);               //determine if game is really over
-int *filAry(int,char);                  //fill an integer array
-void prntAry(int *,int,int);            //print the array
+int hanger(bool &,int);                 //Increments the number of wrong guesses
+void otptChr(bool &, char &);           //If guess is wrong, writes the letter to wrong_guess_output file
+char wrgChar(char [], char);            //Reads in the list of wrong-letter guesses
 
 //Execution Begins Here
-
 int main(int argc, char** argv) {
     //Declare Variables
     string word, line, filaray[200];
     int hang;
     char guess, ans='y';
-    bool gamOver=false;
+    bool gamOver, ret;
     //Set Random Counter
     srand(static_cast<unsigned int> (time(0)));
     //Output Intro
@@ -48,6 +48,7 @@ int main(int argc, char** argv) {
     while (ans=='y'){
         //Set Game Counters   
         gamOver=false;
+        ret=false;
         hang=0;
         guess=0;
         //Read in the file & generate a random word
@@ -68,25 +69,21 @@ int main(int argc, char** argv) {
                     cout<<"__ ";
             }
         cout<<endl;
-        //Fill the wrong-letter array
-        int *array=filAry(hang,guess);
+        //Write the next wrong-letter to the file, if necessary
+        otptChr(ret, guess);
         //Begin Guessing Loop
         while (!gamOver){
             //Request input of letter
             cout<<endl<<endl<<"Type your letter guess (lowercase letters only): ";
             cin>>guess;
             cout<<endl;
-            bool ret=false;
+            //reset return boolean
+            ret=false;
             for (int i=0; i<arylngt; i++) {
                 if (cString[i]==guess)ret=true;
             }
-            //Configure word output
-            if (ret==true) {
-                cout<<"Congratulations"<<endl;
-            }else{
-                cout<<"That letter is not found in the word!"<<endl;
-                hang++;
-            }
+            //Increment number of incorrect guesses if needed
+            hang=hanger(ret, hang);
             cout<<endl<<"(You have used "<<hang<<"/6 chances)"<<endl;
             //Determine graphic output
             pict(hang);
@@ -101,7 +98,11 @@ int main(int argc, char** argv) {
                         cout<<"__ ";
                 }
             cout<<endl;
-            //cout<<"Your wrong guesses are: "<<prntAry(array,hang)<<endl<<endl;
+            //Add wrong letter to list, if needed
+            otptChr(ret, guess);
+            //Read in wrong_guess_output
+            
+            //cout<<"Your wrong guesses are: "<<*******<<endl<<endl;
             gamOver=true;
             //Determine if gamOver is really True
             for (int i=0; i<(arylngt-1); i++){
@@ -123,7 +124,6 @@ int main(int argc, char** argv) {
             cin>>ans;
             cout<<endl;
             //Clean up and exit
-            //delete []array;
         }
         if (ans!='y'){
             break;
@@ -146,6 +146,49 @@ int main(int argc, char** argv) {
 //    return gamOver;
 //}
 
+void otptChr(bool &ret, char &guess) {
+    if(ret==true){
+    //this will contain the data to read out to the file
+    fstream output;
+    //Open the file for output
+    output.open("wrong_guess_output.dat");
+    if (output.is_open()){ //if the file is open
+        if (output.eof()){ 
+                output<<guess;
+        }
+    }
+        output.close(); //closing the file
+    }
+}
+
+/*char wrgChar(char charAry[], char wrgLetr) {
+    char cnt=0;
+    //this will contain the data read from the file
+    ifstream input;
+    //Open the input file
+    input.open("wrong_guess_output.dat");
+    if (input.is_open()){ //if the file is open
+    //Read the data
+    while(input){
+        input>>wrgLetr[cnt++];
+    }
+    //Close the file
+        input.close();
+    }
+    return --cnt;
+}
+ */
+
+int hanger(bool &ret,int hang){
+    if (ret==true) {
+         cout<<endl;
+    }else{
+         cout<<"That letter is not found in the word!"<<endl;
+         hang++;
+    }
+ return hang;   
+}
+
 void pict(int hang){
                 switch(hang){
                 case(0):
@@ -167,24 +210,6 @@ void pict(int hang){
                     haabl();
                     break;
             }
-}
-
-void prntAry(int *a,int n){
-	cout<<endl;
-	for(int i=0;i<n;i++){
-		cout<<*(a+i)<<" ";
-	}
-	cout<<endl;
-}
-
-int *filAry(int n, char guess){
-	//Declare a Pointer and allocate memory
-	int *array=new int[n];
-	//Fill with guess
-	for(int i=0;i<n;i++){
-		*(array+i)=guess;
-	}
-	return array;
 }
 
 string filewrd(string filaray[], string line) {
