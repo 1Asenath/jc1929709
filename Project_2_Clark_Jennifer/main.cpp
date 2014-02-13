@@ -28,8 +28,10 @@ void pict(int); //determine graphic output
 string filewrd(string [], string);      //input the word from the file
 bool gamOv( bool[], int);               //determine if game is really over
 int hanger(bool &,int);                 //Increments the number of wrong guesses
-void otptChr(bool &, char &);           //If guess is wrong, writes the letter to wrong_guess_output file
-char wrgChar(char);            //Reads in the list of wrong-letter guesses
+void otptChr(bool &, char &);           //If guess is wrong, writes the letter to wrong_guess_output.dat
+char *wrngChr(int);                     //Reads in the list of wrong-letter guesses
+void prntChr(char *, int);              //Prints the list of wrong-letter guesses
+void clearChr();                        //Cleans up the file wrong_guess_output.dat
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -64,14 +66,15 @@ int main(int argc, char** argv) {
         cout<<endl;
         //Determine graphic output
         pict(hang);
-        //Output initial blank spaces for the word    ***********PUT THIS INTO A FUNCTION**************
+        //Output initial blank spaces for the word
         for (int i=0; i<(arylngt-1); i++){
                 if (cString[i]!=guess)
                     cout<<"__ ";
         }
         cout<<endl;
         //Begin Guessing Loop
-        while (!gamOver){
+        char *array;
+        do {
             //Request input of letter
             cout<<endl<<endl<<"Type your letter guess (lowercase letters only): ";
             cin>>guess;
@@ -98,12 +101,13 @@ int main(int argc, char** argv) {
                 }
             cout<<endl;
             //Write the next wrong-letter to the file, if necessary
-            cout<<ret<<" "<<guess<<endl;
             otptChr(ret, guess);
-            cout<<ret<<" "<<guess<<endl;
-            //Read in and output wrong_guess_output.dat
-            //wrgLtrs=wrgChar(wrgLtrs);
-            cout<<"Your wrong guesses are: "<<wrgLtrs<<endl<<endl;
+            //Fill the char array and cout wrong_guess_output.dat
+            array=wrngChr(hang);
+            cout<<endl<<"Your wrong guesses are: "<<endl;
+            prntChr(array,hang);
+            cout<<endl<<endl;
+            delete []array;
             //Set Game Over Boolean
             gamOver=true;
             //Determine if gamOver is really True
@@ -115,7 +119,7 @@ int main(int argc, char** argv) {
             if (hang>5){
                 gamOver=true;
             }
-        }
+        } while (!gamOver);
         if (gamOver==true&&hang==6){
             dead();
             cout<<setw(15)<<"Hangman!!"<<endl;
@@ -125,7 +129,8 @@ int main(int argc, char** argv) {
             cout<<"Would you like to play again? Press 'y' for yes."<<endl<<endl;
             cin>>ans;
             cout<<endl;
-            //Clean up and exit
+            //Clean up to end round
+            clearChr();
         }
         if (ans!='y'){
             break;
@@ -134,19 +139,42 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-//Finish this function!!!
-//bool gamOv( bool marker[i], bool gamOver, int hang){
-//    gamOver=true;
-//            for (int i=0; i<(arylngt-1); i++){
-//                if (marker[i]==false){
-//                    gamOver=false;
-//                }
-//            }
-//            if (hang>5){
-//                gamOver=true;
-//            }
-//    return gamOver;
-//}
+void clearChr() {
+    //this will contain the data to clear/read out to the file
+    ofstream output;
+    //Open the file for output
+    output.open("wrong_guess_output.dat", ios::out);
+         output<<" ";
+         output.close();
+    }
+
+void prntChr(char *a,int hang){
+	for(int i=0;i<hang;i++){
+		cout<<*(a+i)<<" ";
+	}
+	cout<<endl;
+}
+
+char *wrngChr(int hang) {
+    //Declare character variable name for the array
+    char wrgLetr;
+    //Declare a Pointer and allocate memory
+    char *array=new char[hang];
+    //this will contain the data read from the file
+    ifstream input;
+    //Open the input file
+    input.open("wrong_guess_output.dat", ios::in);
+    while (input){
+        //input>>wrgLetr;
+	for(int loop=0;loop<hang;loop++){
+            input>>wrgLetr;
+            *(array+loop)=wrgLetr;
+        }
+        break;
+    }
+        input.close(); //closing the file
+    return array;
+}
 
 void otptChr(bool &ret, char &guess) {
     if(ret==false){
@@ -154,46 +182,11 @@ void otptChr(bool &ret, char &guess) {
     fstream output;
     //Open the file for output
     output.open("wrong_guess_output.dat", ios::out | ios::app);
-    cout<<"I'm in the file"<<endl;
+    //TEST cout<<"I'm in the file"<<endl;
          output<<guess;
          output.close();
     }
 }
-
-
-/*char wrgChar(char wrgLtrs) {
-    int cnt=0;
-    //this will contain the data read from the file
-    ifstream input;
-    //Open the input file
-    input.open("wrong_guess_output.dat");
-        while(input){
-             input>>wrgLtrs[cnt++];
-        }
-    //close the file
-    input.close();
-    //exit
-    return --cnt;
-}
- */
-
-/*char wrgChar(char charAry[], char wrgLetr) {
-    char cnt=0;
-    //this will contain the data read from the file
-    ifstream input;
-    //Open the input file
-    input.open("wrong_guess_output.dat");
-    if (input.is_open()){ //if the file is open
-    //Read the data
-    while(input){
-        input>>wrgLetr[cnt++];
-    }
-    //Close the file
-        input.close();
-    }
-    return --cnt;
-}
- */
 
 int hanger(bool &ret,int hang){
     if (ret==true) {
