@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
- * Author: Jennifer
- * Purpose: Hangman- CIS Project 1
+ * Author: Jennifer Clark
+ * Purpose: Hangman- CIS Project 2
  * Created on February 3, 2014, 2:53 PM
  */
 
